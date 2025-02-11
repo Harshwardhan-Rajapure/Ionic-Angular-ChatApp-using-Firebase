@@ -1,0 +1,7 @@
+{
+  "name": "Ionic-Angular-ChatApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
