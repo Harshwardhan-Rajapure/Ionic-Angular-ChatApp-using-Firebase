@@ -34,6 +34,11 @@ log.txt
 npm-debug.log
 yarn-error.log
 
+/android
+/ios
+main.ts
+
+capacitor.config.ts
 # IDEs and editors
 .idea/
 .project
@@ -52,7 +57,7 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-
+/.vscode
 # Miscellaneous
 /.angular
 /.angular/cache
@@ -68,3 +73,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

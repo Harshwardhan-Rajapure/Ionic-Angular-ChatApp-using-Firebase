@@ -1,0 +1,73 @@
+<ion-content [fullscreen]="true">
+  <div align="center" class="logo">
+    <img src="assets/login-chats.png" alt="login-chats" />
+  </div>
+
+  <ion-card class="ion-padding">
+    <form [formGroup]="form">
+      <ion-input
+        placeholder="Email"
+        type="email"
+        formControlName="email"
+        class="ion-margin-bottom"
+        errorText="* Please enter your email"
+      >
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+      </ion-input>
+
+      <ion-input
+        placeholder="Password"
+        type="password"
+        formControlName="password"
+        [errorText]="form.get('password')?.hasError('minlength')? '* Passsword must be atleast 8 characters long': '* Please enter your password' "
+      >
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+
+      <div align="right"> 
+        <ion-button fill="clear" size="small" color="medium">
+          Forgot password?
+        </ion-button>
+      </div>
+
+      @if(!isLogin()) {
+        
+        <ion-button
+          size="medium"
+          expand="block"
+          
+          [strong]="true"
+          (click)="onSubmit()"
+        > 
+        <!-- class="ion-margin-top ion-padding-top" -->
+
+          <ion-text>Login</ion-text>
+        </ion-button>
+      } @else {
+        <ion-button
+        size="medium"
+        expand="block"
+        class="ion-margin-top ion-padding-top"
+        [strong]="true"
+      >
+       <ion-spinner name="crescent"></ion-spinner>
+      </ion-button>
+      }
+    </form>
+    <div align="center" class="ion-margin-top signup">
+      <ion-text>Don't have an account?</ion-text>
+      <ion-button fill="clear" size="small" color="dark" [strong]="true" routerLink="signup">Signup</ion-button>
+    </div>
+
+  </ion-card>
+
+  <ion-alert
+  [isOpen]="!!errorMessage()"
+  (didDismiss)="setErrorMessage(null)"
+    header="Alert"
+    [message]="errorMessage()"
+    [buttons]="['Ok']"
+  ></ion-alert>
+  
+</ion-content>

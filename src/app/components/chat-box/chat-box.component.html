@@ -1,0 +1,17 @@
+@defer(when chat()){
+<ion-item lines="none" [class]="chat()?.isCurrentUser ? 'currentUser' : 'otherUser' ">
+  <div
+    class="ion-text-wrap container"
+    [slot]="chat()?.isCurrentUser ? 'end' : 'start'"
+  >
+    <ion-text>{{ chat()?.message }}</ion-text>
+    <ion-note>
+      <small>{{ chat()?.timestamp | date : "HH:mm" }}</small>
+      @if(chat()?.isCurrentUser){
+        <ion-icon name="checkmark-done-outline" style="color: blue;"></ion-icon>
+      }
+    </ion-note>
+  </div>
+</ion-item>
+}
+

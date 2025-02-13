@@ -34,4 +34,14 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+// @import '@ionic/angular/css/palettes/dark.system.css';
+
+:root {
+  --ion-safe-area-top: 25px;
+  --ion-safe-area-bottom: env(safe-area-inset-bottom);
+  background: transparent;
+}
+
+// ion-content {
+//   --overflow: hidden
+// }

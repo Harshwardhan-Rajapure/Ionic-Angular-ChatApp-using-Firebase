@@ -1,0 +1,12 @@
+ion-list {
+  ion-item {
+    margin-top: 2vh;
+    ion-label {
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
