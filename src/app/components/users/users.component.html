@@ -15,9 +15,11 @@
       <ion-list lines="full">
         @for(user of users(); track $index) {
   
-        <ion-item (click)="startChat(user)">
+        <ion-item style="cursor: pointer;" (click)="startChat(user)">
           <ion-avatar slot="start">
-            <ion-img [src]="user?.photo"></ion-img>
+            <!-- <ion-img [src]="user?.photo"></ion-img> -->
+            <ion-img [src]="getUserPhoto(user)"></ion-img>
+
           </ion-avatar>
   
           <ion-label> {{user?.name}} </ion-label>

@@ -51,4 +51,13 @@ export class UsersComponent implements OnInit {
   startChat(user: User) {
     this.user.emit(user);
   }
+
+  getUserPhoto(user: User): string {
+    if (user?.name) {
+      const firstLetter = user.name.charAt(0).toUpperCase(); // Get first letter
+      return `https://api.dicebear.com/7.x/initials/svg?seed=${firstLetter}0`;
+    } else {
+      return `https://api.dicebear.com/7.x/initials/svg?seed=U`; // Default avatar
+    }
+  }
 }

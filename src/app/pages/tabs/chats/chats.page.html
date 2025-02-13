@@ -25,9 +25,10 @@
     <ion-list>
       @for(chatroom of chat; track $index){
   
-      <ion-item [detail]="true" (click)="getChat(chatroom)">
+      <ion-item [detail]="true" style="cursor: pointer;" (click)="getChat(chatroom)">
         <ion-avatar slot="start">
-          <ion-img [src]="chatroom?.photo"></ion-img>
+          <!-- <ion-img [src]="chatroom?.photo"></ion-img> -->
+          <ion-img [src]="getChatroomPhoto(chatroom)"></ion-img>
         </ion-avatar>
   
         <ion-label>
