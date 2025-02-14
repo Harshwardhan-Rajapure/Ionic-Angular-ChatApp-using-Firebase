@@ -32,10 +32,12 @@
     <ion-item lines="none">
       <ion-textarea
         autoGrow
+        #messageInput
         rows="1"
         placeholder="Send message"
         class="ion-text-center"
         [(ngModel)]="message"
+        (keydown.enter)="handleEnterPress($event)"
       ></ion-textarea>
 
       @if(isLoading()) {

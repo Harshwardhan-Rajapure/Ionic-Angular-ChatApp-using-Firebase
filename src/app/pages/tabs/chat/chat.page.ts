@@ -53,7 +53,6 @@ import { FormsModule } from '@angular/forms';
     IonHeader,
     IonTextarea,
     FormsModule,
-    IonPopover
   ],
 })
 export class ChatPage implements OnInit {
@@ -108,6 +107,16 @@ export class ChatPage implements OnInit {
     this.id.set(id);
     this.chatService.init(id);
   }
+
+  handleEnterPress(event: Event): void {
+    const keyboardEvent = event as KeyboardEvent;
+    keyboardEvent.preventDefault();
+    
+    if (!keyboardEvent.shiftKey) {
+      this.sendMessage();
+    }
+  }
+
 
   scrollToBottom() {
     this.content()?.scrollToBottom(500);
