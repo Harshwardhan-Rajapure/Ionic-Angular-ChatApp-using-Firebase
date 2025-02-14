@@ -26,6 +26,7 @@ ChatApp is a real-time chat application built with **IONIC** and **Firebase**. I
 
 
 | Profile Page |
+
 ![image](https://github.com/user-attachments/assets/e93f1c34-4afb-465b-a2c8-3bd10931676b)
 
 
