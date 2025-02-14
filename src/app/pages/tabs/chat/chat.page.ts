@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { checkmarkDoneOutline, chatbubblesOutline, send, personCircle } from 'ionicons/icons';
+import { checkmarkDoneOutline, chatbubblesOutline, send, personCircle, callOutline, videocamOutline, ellipsisVerticalOutline } from 'ionicons/icons';
 import { ChatBoxComponent } from 'src/app/components/chat-box/chat-box.component';
 import { EmptyScreenComponent } from 'src/app/components/empty-screen/empty-screen.component';
 import { ChatService } from 'src/app/services/chat/chat.service';
@@ -27,6 +27,7 @@ import {
   IonTitle,
   IonHeader,
   IonTextarea,
+  IonPopover,
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 
@@ -51,7 +52,8 @@ import { FormsModule } from '@angular/forms';
     IonTitle,
     IonHeader,
     IonTextarea,
-    FormsModule
+    FormsModule,
+    IonPopover
   ],
 })
 export class ChatPage implements OnInit {
@@ -85,7 +87,10 @@ export class ChatPage implements OnInit {
       checkmarkDoneOutline,
       chatbubblesOutline,
       send,
-      personCircle
+      personCircle,
+      callOutline,
+      videocamOutline,
+      ellipsisVerticalOutline
     });
   }
 
