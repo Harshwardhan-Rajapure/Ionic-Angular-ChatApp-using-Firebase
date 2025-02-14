@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
-import { PushNotificationService } from './services/push-notification.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,9 @@ import { PushNotificationService } from './services/push-notification.service';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  constructor(private pushNotificationService: PushNotificationService) {
-    this.pushNotificationService.initializePushNotifications();
-  }
+  // constructor(private pushNotificationService: PushNotificationService) {
+  //   this.pushNotificationService.initializePushNotifications();
+  // }
+
+  constructor () {}
 }
