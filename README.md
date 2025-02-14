@@ -15,13 +15,13 @@ ChatApp is a real-time chat application built with **IONIC** and **Firebase**. I
 - **Styling**: Ionic Components & CSS
 
 ## 🎨 Screenshots
-| Login Page |
+| Login Page |                                                                                           | Signup Page |
 
-![image](https://github.com/user-attachments/assets/210db1da-e367-48ca-aa9e-ce4604f4e231)    
+![image](https://github.com/user-attachments/assets/210db1da-e367-48ca-aa9e-ce4604f4e231)    ![image](https://github.com/user-attachments/assets/27a0014c-198e-4e3a-8fd5-37efe5c85935)
 
-| Signup Page |
 
-![image](https://github.com/user-attachments/assets/27a0014c-198e-4e3a-8fd5-37efe5c85935)
+
+
 
 | Chat Page |
 
