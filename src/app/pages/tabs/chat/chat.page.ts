@@ -1,15 +1,27 @@
 import {
   Component,
+  ElementRef,
   OnInit,
+  ViewChild,
   computed,
   effect,
   inject,
   signal,
   viewChild,
 } from '@angular/core';
+import { Keyboard } from '@capacitor/keyboard';
+import { Platform } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { checkmarkDoneOutline, chatbubblesOutline, send, personCircle, callOutline, videocamOutline, ellipsisVerticalOutline } from 'ionicons/icons';
+import {
+  checkmarkDoneOutline,
+  chatbubblesOutline,
+  send,
+  personCircle,
+  callOutline,
+  videocamOutline,
+  ellipsisVerticalOutline,
+} from 'ionicons/icons';
 import { ChatBoxComponent } from 'src/app/components/chat-box/chat-box.component';
 import { EmptyScreenComponent } from 'src/app/components/empty-screen/empty-screen.component';
 import { ChatService } from 'src/app/services/chat/chat.service';
@@ -27,7 +39,6 @@ import {
   IonTitle,
   IonHeader,
   IonTextarea,
-  IonPopover,
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 
@@ -74,7 +85,12 @@ export class ChatPage implements OnInit {
   private route = inject(ActivatedRoute);
   private chatService = inject(ChatService);
 
-  constructor() {
+  @ViewChild('messageInput') messageInput!: ElementRef;
+  @ViewChild('content') content1: any;
+
+  constructor(private platform: Platform) {
+    this.initializeKeyboardListeners();
+
     effect(() => {
       if (this.chats() && this.chats()?.length! > 0) {
         setTimeout(() => {
@@ -89,7 +105,7 @@ export class ChatPage implements OnInit {
       personCircle,
       callOutline,
       videocamOutline,
-      ellipsisVerticalOutline
+      ellipsisVerticalOutline,
     });
   }
 
@@ -108,15 +124,38 @@ export class ChatPage implements OnInit {
     this.chatService.init(id);
   }
 
+  private async initializeKeyboardListeners() {
+    if (this.platform.is('mobile')) {
+      // Show listener
+      Keyboard.addListener('keyboardWillShow', (info) => {
+        console.log('Keyboard Height:', info.keyboardHeight);
+        
+        document.documentElement.style.setProperty('--keyboard-height', `${info.keyboardHeight}px`);
+        document.body.classList.add('keyboard-is-open');
+  
+        // Wait for keyboard animation, then scroll
+        setTimeout(() => {
+          this.content1?.scrollToBottom(300);
+        }, 300);
+      });
+  
+      // Hide listener
+      Keyboard.addListener('keyboardWillHide', () => {
+        document.documentElement.style.setProperty('--keyboard-height', '0px');
+        document.body.classList.remove('keyboard-is-open');
+      });
+    }
+  }
+  
+
   handleEnterPress(event: Event): void {
     const keyboardEvent = event as KeyboardEvent;
     keyboardEvent.preventDefault();
-    
+
     if (!keyboardEvent.shiftKey) {
       this.sendMessage();
     }
   }
-
 
   scrollToBottom() {
     this.content()?.scrollToBottom(500);

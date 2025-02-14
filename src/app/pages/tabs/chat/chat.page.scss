@@ -8,3 +8,19 @@ ion-footer {
         margin: 0.5vh 1vh 0.5vh 0;
     }
 }
+
+/* chat.page.scss */
+:host-context(.keyboard-is-open) {
+    ion-content {
+      height: 100vh !important; 
+    }
+  
+    ion-footer {
+      position: fixed;
+      bottom: env(safe-area-inset-bottom, 0) !important; 
+      left: 0;
+      right: 0;
+      z-index: 11;
+    }
+  }
+  
